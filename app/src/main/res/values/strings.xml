@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Production of order pickers</string>
+    <string name="title_calc">Calc</string>
+    <string name="title_dashboard">Dashboard</string>
+
+    <string name="adry">ADRY</string>
+    <string name="afresh">AFRESH</string>
+    <string name="afrost">AFROST</string>
+    <string name="afruit">AFRUIT</string>
+    <string name="alco">ALCO</string>
+    <string name="amez">AMEZ</string>
+    <string name="holod3">HOLOD3</string>
+
+    <string name="hint">0</string>
+    <string name="handpicked">Отобрано</string>
+    <string name="zero_rubles">0₽</string>
+    <string name="shift_fee">Выход</string>
+    <string name="result">Итого</string>
+    <string name="adry_subtext">Сухой</string>
+    <string name="zero_count">0</string>
+    <string name="pieces">шт.</string>
+    <string name="afresh_subtext">Охлаждёнка</string>
+    <string name="afrost_subtext">Заморозка</string>
+    <string name="afruit_subtext">ФРОВ</string>
+    <string name="alco_subtext">Алкоголь</string>
+    <string name="amez_subtext">Прикасса</string>
+    <string name="holod3_subtext">Вода</string>
+
+    <string name="ruble_sign">₽</string>
+</resources>

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.trifonovkv.production.ui.calc.CalcFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingTop="32dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/jura"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/handpicked"
+            android:textAlignment="textEnd"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewHandpicked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:fontFamily="@font/russo_one"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/zero_rubles"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white_100"
+            android:textSize="36sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/jura"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/shift_fee"
+            android:textAlignment="textEnd"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewShiftFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:fontFamily="@font/montserrat_alternates"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/zero_rubles"
+            android:textAlignment="textEnd"
+            android:textColor="@color/gray"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/jura"
+            android:gravity="end"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/result"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textViewMainResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/russo_one"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/zero_rubles"
+            android:textColor="@color/white_100"
+            android:textSize="48sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cacao" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingTop="48dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/adry" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/adry_subtext" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewAdryResult"
+            style="@style/position_result" />
+
+        <EditText
+            android:id="@+id/editTextAdry"
+            style="@style/position_enter_count"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+        <TextView style="@style/position_pieces" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/afresh" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/afresh_subtext" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewAfreshResult"
+            style="@style/position_result" />
+
+        <EditText
+            android:id="@+id/editTextAfresh"
+            style="@style/position_enter_count"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_pieces" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/afrost" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/afrost_subtext" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewAfrostResult"
+            style="@style/position_result" />
+
+        <EditText
+            android:id="@+id/editTextAfrost"
+            style="@style/position_enter_count"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_pieces" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/afruit" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/afruit_subtext" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewAfruitResult"
+            style="@style/position_result" />
+
+        <EditText
+            android:id="@+id/editTextAfruit"
+            style="@style/position_enter_count"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_pieces" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/alco" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/alco_subtext" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewAlcoResult"
+            style="@style/position_result" />
+
+        <EditText
+            android:id="@+id/editTextAlco"
+            style="@style/position_enter_count"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_pieces" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/amez" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/amez_subtext" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewAmezResult"
+            style="@style/position_result" />
+
+        <EditText
+            android:id="@+id/editTextAmez"
+            style="@style/position_enter_count"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_pieces" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/holod3" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/holod3_subtext" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewHolod3Result"
+            style="@style/position_result" />
+
+        <EditText
+            android:id="@+id/editTextHolod3"
+            style="@style/position_enter_count"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_pieces" />
+    </LinearLayout>
+
+</LinearLayout>
+

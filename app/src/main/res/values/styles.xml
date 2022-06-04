@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="labelPosition">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="valuePosition">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ems">5</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textColorHint">#78909C</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAlignment">viewEnd</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="linear_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="position_main_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/russo_one</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="position_subtext">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">-11dp</item>
+        <item name="android:fontFamily">@font/jura</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="position_result">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">@font/montserrat_alternates</item>
+        <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/white_200</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:text">@string/zero_rubles</item>
+    </style>
+
+    <style name="position_enter_count">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_weight">0</item>
+        <item name="android:backgroundTint">@color/white_200</item>
+        <item name="android:ems">3</item>
+        <item name="android:fontFamily">@font/russo_one</item>
+        <item name="android:gravity">end</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:maxLength">4</item>
+        <item name="android:textColor">@color/white_200</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:hint">@string/zero_count</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:digits">0123456789</item>
+    </style>
+
+    <style name="position_pieces">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_weight">0</item>
+        <item name="android:fontFamily">@font/jura</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:text">@string/pieces</item>
+    </style>
+
+</resources>
