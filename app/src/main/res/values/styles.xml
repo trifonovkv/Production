@@ -86,4 +86,14 @@
         <item name="android:text">@string/pieces</item>
     </style>
 
+    <style name="position_ruble_sign" parent="position_pieces">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">0</item>
+        <item name="android:text">@string/ruble_sign</item>
+    </style>
+
+    <style name="position_enter_price" parent="position_enter_count">
+        <item name="android:digits">\\.0123456789</item>
+    </style>
+
 </resources>

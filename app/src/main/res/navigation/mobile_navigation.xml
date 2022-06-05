@@ -9,12 +9,19 @@
         android:id="@+id/navigation_calc"
         android:name="com.trifonovkv.production.ui.calc.CalcFragment"
         android:label="@string/title_calc"
-        tools:layout="@layout/fragment_calc" />
-
+        tools:layout="@layout/fragment_calc" >
+        <action
+            android:id="@+id/action_navigation_calc_to_settingsFragment2"
+            app:destination="@id/navigation_settings" />
+    </fragment>
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.production.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_settings"
+        android:name="com.trifonovkv.production.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_navigation_calc2"
+            app:destination="@id/navigation_calc" />
+    </fragment>
 
 </navigation>

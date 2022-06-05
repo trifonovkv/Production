@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp"
+    tools:context="com.trifonovkv.production.ui.settings.SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <TextView
+            style="@style/position_main_text"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="@string/shift_out" />
+
+        <EditText
+            android:id="@+id/editTextShiftPrice"
+            style="@style/position_enter_price"
+            android:layout_width="wrap_content"
+            android:layout_weight="0"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+        <TextView style="@style/position_ruble_sign" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/adry" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/adry_subtext" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextAdryPrice"
+            style="@style/position_enter_price"
+            android:layout_width="wrap_content"
+            android:layout_weight="0"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+        <TextView style="@style/position_ruble_sign" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/afresh" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/afresh_subtext" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextAfreshPrice"
+            style="@style/position_enter_price"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_ruble_sign" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/afrost" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/afrost_subtext" />
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/editTextAfrostPrice"
+            style="@style/position_enter_price"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_ruble_sign" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/afruit" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/afruit_subtext" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextAfruitPrice"
+            style="@style/position_enter_price"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_ruble_sign" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/alco" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/alco_subtext" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextAlcoPrice"
+            style="@style/position_enter_price"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_ruble_sign" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/amez" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/amez_subtext" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextAmezPrice"
+            style="@style/position_enter_price"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_ruble_sign" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/position_main_text"
+                android:text="@string/holod3" />
+
+            <TextView
+                style="@style/position_subtext"
+                android:text="@string/holod3_subtext" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextHolod3Price"
+            style="@style/position_enter_price"
+            tools:ignore="Autofill,LabelFor" />
+
+        <TextView style="@style/position_ruble_sign" />
+    </LinearLayout>
+
+
+</LinearLayout>
