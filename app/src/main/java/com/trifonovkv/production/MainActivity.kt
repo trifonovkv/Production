@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        // hide navbar
         window.decorView.setOnApplyWindowInsetsListener { view, insets ->
             val insetsCompat = toWindowInsetsCompat(insets, view)
             navView.isGone = insetsCompat.isVisible(ime())
