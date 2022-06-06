@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.trifonovkv.production.R
 import com.trifonovkv.production.databinding.FragmentCalcBinding
@@ -42,8 +43,9 @@ class CalcFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        val homeViewModel =
-//            ViewModelProvider(this).get(CalcViewModel::class.java)
+
+        val calcViewModel =
+            ViewModelProvider(this).get(CalcViewModel::class.java)
 
         _binding = FragmentCalcBinding.inflate(inflater, container, false)
         val root: View = binding.root
