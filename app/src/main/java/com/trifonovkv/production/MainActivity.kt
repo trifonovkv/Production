@@ -3,12 +3,14 @@ package com.trifonovkv.production
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowInsetsCompat.Type.ime
+import androidx.core.view.WindowInsetsCompat.toWindowInsetsCompat
+import androidx.core.view.isGone
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.production.R
-import com.example.production.databinding.ActivityMainBinding
+import com.trifonovkv.production.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,5 +37,11 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        window.decorView.setOnApplyWindowInsetsListener { view, insets ->
+            val insetsCompat = toWindowInsetsCompat(insets, view)
+            navView.isGone = insetsCompat.isVisible(ime())
+            view.onApplyWindowInsets(insets)
+        }
     }
 }

@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.preference.PreferenceManager
-import com.example.production.databinding.FragmentSettingsBinding
+import com.trifonovkv.production.databinding.FragmentSettingsBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -66,7 +66,7 @@ class SettingsFragment : Fragment() {
 
         val editor = sharedPrefs.edit()
 
-        binding.editTextAdryPrice.doAfterTextChanged {
+        binding.editTextShiftPrice.doAfterTextChanged {
             editor.putString("shift_price", "$it").apply()
         }
 
@@ -92,8 +92,6 @@ class SettingsFragment : Fragment() {
             editor.putString("holod3_price", "$it").apply()
         }
 
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_settings, container, false)
         return root
     }
 

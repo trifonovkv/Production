@@ -32,28 +32,28 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/russo_one</item>
         <item name="android:textColor">@color/gray</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="position_subtext">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">-11dp</item>
+        <item name="android:layout_marginTop">-9dp</item>
         <item name="android:fontFamily">@font/jura</item>
         <item name="android:textColor">@color/gray</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="position_result">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:fontFamily">@font/montserrat_alternates</item>
         <item name="android:gravity">end</item>
         <item name="android:textColor">@color/white_200</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:text">@string/zero_rubles</item>
     </style>
 
@@ -69,7 +69,7 @@
         <item name="android:inputType">numberDecimal</item>
         <item name="android:maxLength">4</item>
         <item name="android:textColor">@color/white_200</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:hint">@string/zero_count</item>
         <item name="android:textColorHint">@color/gray</item>
         <item name="android:digits">0123456789</item>
@@ -82,7 +82,7 @@
         <item name="android:layout_weight">0</item>
         <item name="android:fontFamily">@font/jura</item>
         <item name="android:textColor">@color/gray</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:text">@string/pieces</item>
     </style>
 
