@@ -105,7 +105,7 @@ class CalcFragment : Fragment() {
         amezPrice = sharedPrefs.getString("amez_price", "1.50").toString()
         holod3Price = sharedPrefs.getString("holod3_price", "1.30").toString()
 
-        "+$shiftPrice".also { binding.textViewShiftFee.text = it }
+        "+$shiftPrice${getString(R.string.ruble_sign)}".also { binding.textViewShiftFee.text = it }
 
         val adryResult = (binding.editTextAdry.text.toString().toIntOrNull() ?: 0) * adryPrice.toDouble()
         val afreshResult = (binding.editTextAfresh.text.toString().toIntOrNull() ?: 0) * afreshPrice.toDouble()

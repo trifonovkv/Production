@@ -90,6 +90,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_weight">0</item>
         <item name="android:text">@string/ruble_sign</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="position_enter_price" parent="position_enter_count">
