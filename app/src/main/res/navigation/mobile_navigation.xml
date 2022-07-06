@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_calc_to_settingsFragment2"
             app:destination="@id/navigation_settings" />
+        <action
+            android:id="@+id/action_navigation_calc_to_blankFragment"
+            app:destination="@id/navigation_journal" />
     </fragment>
     <fragment
         android:id="@+id/navigation_settings"
@@ -21,6 +24,14 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_navigation_calc2"
+            app:destination="@id/navigation_calc" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_journal"
+        android:name="com.trifonovkv.production.ui.journal.StatisticFragment"
+        android:label="fragment_statistic">
+        <action
+            android:id="@+id/action_blankFragment_to_navigation_calc"
             app:destination="@id/navigation_calc" />
     </fragment>
 

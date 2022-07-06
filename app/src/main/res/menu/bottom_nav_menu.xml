@@ -7,6 +7,11 @@
         android:title="@string/title_calc" />
 
     <item
+        android:id="@+id/navigation_journal"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="@string/journal" />
+
+    <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_baseline_settings_black_24"
         android:title="@string/title_settings" />

@@ -97,4 +97,34 @@
         <item name="android:digits">\\.0123456789</item>
     </style>
 
+    <style name="table_title">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/russo_one</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="table_item">
+        <item name="android:textColor">@color/white_200</item>
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/montserrat_alternates</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="table_total">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white_200</item>
+        <item name="android:fontFamily">@font/russo_one</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

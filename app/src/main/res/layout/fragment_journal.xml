@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            style="@style/table_title"
+            android:text="Дата" />
+
+        <TextView
+            style="@style/table_title"
+            android:text="@string/adry" />
+
+        <TextView
+            style="@style/table_title"
+            android:text="@string/afresh" />
+
+        <TextView
+            style="@style/table_title"
+            android:text="@string/afrost" />
+
+        <TextView
+            style="@style/table_title"
+            android:text="@string/afruit" />
+
+        <TextView
+            style="@style/table_title"
+            android:text="@string/alco" />
+
+        <TextView
+            style="@style/table_title"
+            android:text="@string/amez" />
+
+        <TextView
+            style="@style/table_title"
+            android:text="@string/holod3" />
+
+        <TextView
+            style="@style/table_title"
+            android:text="Всего" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewStatistic"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/recyclerview_item" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cacao" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="32dp">
+
+        <TextView
+            style="@style/table_total" />
+
+        <TextView
+            android:id="@+id/textViewAdryTotal"
+            style="@style/table_total"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/textViewAfreshTotal"
+            style="@style/table_total"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/textViewAfrostTotal"
+            style="@style/table_total"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/textViewAfruitTotal"
+            style="@style/table_total"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/textViewAlcoTotal"
+            style="@style/table_total"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/textViewAmezTotal"
+            style="@style/table_total"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/textViewHolod3Total"
+            style="@style/table_total"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/textViewTotalTotal"
+            style="@style/table_total"
+            android:text="0" />
+    </LinearLayout>
+</LinearLayout>

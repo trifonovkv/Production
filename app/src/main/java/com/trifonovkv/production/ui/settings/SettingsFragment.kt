@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.preference.PreferenceManager
+import com.trifonovkv.production.MainActivity
 import com.trifonovkv.production.databinding.FragmentSettingsBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -45,6 +46,8 @@ class SettingsFragment : Fragment() {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
         val root: View = binding.root
+
+        (requireActivity() as MainActivity).supportActionBar!!.hide()
 
         val shiftPrice = sharedPrefs.getString("shift_price", "900").toString()
         val adryPrice = sharedPrefs.getString("adry_price", "1.30").toString()

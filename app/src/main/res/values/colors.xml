@@ -5,4 +5,6 @@
     <color name="white_100">#FAFAFA</color>
     <color name="cacao">#AA9C8C</color>
     <color name="white_200">#EBEBEB</color>
+    <color name="list_color">#333638</color>
+    <color name="red">#E36A6A</color>
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/linearLayoutItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textViewDate"
+        style="@style/table_item" />
+
+    <TextView
+        android:id="@+id/textViewAdry"
+        style="@style/table_item" />
+
+    <TextView
+        android:id="@+id/textViewAfresh"
+        style="@style/table_item" />
+
+    <TextView
+        android:id="@+id/textViewAfrost"
+        style="@style/table_item" />
+
+    <TextView
+        android:id="@+id/textViewAfruit"
+        style="@style/table_item" />
+
+    <TextView
+        android:id="@+id/textViewAlco"
+        style="@style/table_item" />
+
+    <TextView
+        android:id="@+id/textViewAmez"
+        style="@style/table_item" />
+
+    <TextView
+        android:id="@+id/textViewHolod3"
+        style="@style/table_item" />
+
+    <TextView
+        android:id="@+id/textViewTotal"
+        style="@style/table_item"
+        android:text="0" />
+
+</LinearLayout>

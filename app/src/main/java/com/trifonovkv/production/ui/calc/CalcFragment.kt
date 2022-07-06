@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +13,9 @@ import androidx.preference.PreferenceManager
 import com.trifonovkv.production.R
 import com.trifonovkv.production.databinding.FragmentCalcBinding
 import com.trifonovkv.production.MainActivity
+import com.trifonovkv.production.ui.journal.ProductionDbHelper
+import com.trifonovkv.production.ui.journal.ProductionEntry
+import com.trifonovkv.production.ui.journal.ProductionJournal
 import kotlin.math.pow
 import kotlin.math.roundToInt
 
@@ -38,6 +42,9 @@ class CalcFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var dbHelper: ProductionDbHelper
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -50,10 +57,7 @@ class CalcFragment : Fragment() {
         _binding = FragmentCalcBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+
         (requireActivity() as MainActivity).supportActionBar!!.hide()
 
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
@@ -80,6 +84,27 @@ class CalcFragment : Fragment() {
             update()
         }
 
+        dbHelper = ProductionDbHelper(requireContext())
+
+        binding.imageButtonSave.setOnClickListener {
+            val productionJournal = ProductionJournal(dbHelper)
+            val data = System.currentTimeMillis()
+            val adry = binding.editTextAdry.text.toString().toIntOrNull()?: 0
+            val afresh = binding.editTextAfresh.text.toString().toIntOrNull()?: 0
+            val afrost = binding.editTextAfrost.text.toString().toIntOrNull()?: 0
+            val afruit = binding.editTextAfruit.text.toString().toIntOrNull()?: 0
+            val alco = binding.editTextAlco.text.toString().toIntOrNull()?: 0
+            val amez = binding.editTextAmez.text.toString().toIntOrNull()?: 0
+            val holod3 = binding.editTextHolod3.text.toString().toIntOrNull()?: 0
+            val total = adry + afresh + afrost + afruit + alco + amez + holod3
+            productionJournal.addEntry(
+                ProductionEntry(
+                    data, adry, afresh, afrost, afruit, alco, amez, holod3, total)
+            )
+
+            Toast.makeText(context, getString(R.string.saved), Toast.LENGTH_SHORT).show()
+        }
+
         return root
     }
 
@@ -91,6 +116,7 @@ class CalcFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        dbHelper.close()
     }
 
     private fun update() {
