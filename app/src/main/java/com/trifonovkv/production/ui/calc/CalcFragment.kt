@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
 import com.trifonovkv.production.R
 import com.trifonovkv.production.databinding.FragmentCalcBinding
@@ -51,9 +50,6 @@ class CalcFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val calcViewModel =
-            ViewModelProvider(this).get(CalcViewModel::class.java)
-
         _binding = FragmentCalcBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -62,44 +58,31 @@ class CalcFragment : Fragment() {
 
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
 
-        binding.editTextAdry.doAfterTextChanged {
-            update()
-        }
-        binding.editTextAfresh.doAfterTextChanged {
-            update()
-        }
-        binding.editTextAfrost.doAfterTextChanged {
-            update()
-        }
-        binding.editTextAfruit.doAfterTextChanged {
-            update()
-        }
-        binding.editTextAlco.doAfterTextChanged {
-            update()
-        }
-        binding.editTextAmez.doAfterTextChanged {
-            update()
-        }
-        binding.editTextHolod3.doAfterTextChanged {
-            update()
-        }
+        binding.editTextAdry.doAfterTextChanged { update() }
+        binding.editTextAfresh.doAfterTextChanged { update() }
+        binding.editTextAfrost.doAfterTextChanged { update() }
+        binding.editTextAfruit.doAfterTextChanged { update() }
+        binding.editTextAlco.doAfterTextChanged { update() }
+        binding.editTextAmez.doAfterTextChanged { update() }
+        binding.editTextHolod3.doAfterTextChanged { update() }
 
         dbHelper = ProductionDbHelper(requireContext())
 
         binding.imageButtonSave.setOnClickListener {
             val productionJournal = ProductionJournal(dbHelper)
             val data = System.currentTimeMillis()
-            val adry = binding.editTextAdry.text.toString().toIntOrNull()?: 0
-            val afresh = binding.editTextAfresh.text.toString().toIntOrNull()?: 0
-            val afrost = binding.editTextAfrost.text.toString().toIntOrNull()?: 0
-            val afruit = binding.editTextAfruit.text.toString().toIntOrNull()?: 0
-            val alco = binding.editTextAlco.text.toString().toIntOrNull()?: 0
-            val amez = binding.editTextAmez.text.toString().toIntOrNull()?: 0
-            val holod3 = binding.editTextHolod3.text.toString().toIntOrNull()?: 0
+            val adry = binding.editTextAdry.text.toString().toIntOrNull() ?: 0
+            val afresh = binding.editTextAfresh.text.toString().toIntOrNull() ?: 0
+            val afrost = binding.editTextAfrost.text.toString().toIntOrNull() ?: 0
+            val afruit = binding.editTextAfruit.text.toString().toIntOrNull() ?: 0
+            val alco = binding.editTextAlco.text.toString().toIntOrNull() ?: 0
+            val amez = binding.editTextAmez.text.toString().toIntOrNull() ?: 0
+            val holod3 = binding.editTextHolod3.text.toString().toIntOrNull() ?: 0
             val total = adry + afresh + afrost + afruit + alco + amez + holod3
             productionJournal.addEntry(
                 ProductionEntry(
-                    data, adry, afresh, afrost, afruit, alco, amez, holod3, total)
+                    data, adry, afresh, afrost, afruit, alco, amez, holod3, total
+                )
             )
 
             Toast.makeText(context, getString(R.string.saved), Toast.LENGTH_SHORT).show()
@@ -133,13 +116,20 @@ class CalcFragment : Fragment() {
 
         "+$shiftPrice${getString(R.string.ruble_sign)}".also { binding.textViewShiftFee.text = it }
 
-        val adryResult = (binding.editTextAdry.text.toString().toIntOrNull() ?: 0) * adryPrice.toDouble()
-        val afreshResult = (binding.editTextAfresh.text.toString().toIntOrNull() ?: 0) * afreshPrice.toDouble()
-        val afrostResult = (binding.editTextAfrost.text.toString().toIntOrNull() ?: 0) * afrostPrice.toDouble()
-        val afruitResult = (binding.editTextAfruit.text.toString().toIntOrNull() ?: 0) * afruitPrice.toDouble()
-        val alcoResult = (binding.editTextAlco.text.toString().toIntOrNull() ?: 0) * alcoPrice.toDouble()
-        val amezResult = (binding.editTextAmez.text.toString().toIntOrNull() ?: 0) * amezPrice.toDouble()
-        val holod3Result = (binding.editTextHolod3.text.toString().toIntOrNull() ?: 0) * holod3Price.toDouble()
+        val adryResult =
+            (binding.editTextAdry.text.toString().toIntOrNull() ?: 0) * adryPrice.toDouble()
+        val afreshResult =
+            (binding.editTextAfresh.text.toString().toIntOrNull() ?: 0) * afreshPrice.toDouble()
+        val afrostResult =
+            (binding.editTextAfrost.text.toString().toIntOrNull() ?: 0) * afrostPrice.toDouble()
+        val afruitResult =
+            (binding.editTextAfruit.text.toString().toIntOrNull() ?: 0) * afruitPrice.toDouble()
+        val alcoResult =
+            (binding.editTextAlco.text.toString().toIntOrNull() ?: 0) * alcoPrice.toDouble()
+        val amezResult =
+            (binding.editTextAmez.text.toString().toIntOrNull() ?: 0) * amezPrice.toDouble()
+        val holod3Result =
+            (binding.editTextHolod3.text.toString().toIntOrNull() ?: 0) * holod3Price.toDouble()
 
         handPickedResult += adryResult
         handPickedResult += afreshResult

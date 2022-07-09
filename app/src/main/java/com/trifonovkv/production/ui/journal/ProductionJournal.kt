@@ -25,7 +25,7 @@ object ProductionContract {
     }
 }
 
-// TODO to int
+
 private const val SQL_CREATE_ENTRIES =
     "CREATE TABLE ${ProductionContract.FeedEntry.TABLE_NAME} (" +
             "${BaseColumns._ID} INTEGER PRIMARY KEY," +
@@ -158,16 +158,6 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         return productionEntries.filter {
             isValidDatePeriod(it.date)
         }
-    }
-
-    fun deleteEntry(entry: ProductionEntry) {
-        val db = dbHelper.writableDatabase
-        db.delete(
-            ProductionContract.FeedEntry.TABLE_NAME,
-            "${ProductionContract.FeedEntry.COLUMN_NAME_DATE} = ${entry.date}",
-            null
-        )
-
     }
 
     // previous month 25 - current month 24

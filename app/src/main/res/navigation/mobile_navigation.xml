@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_journal"
-        android:name="com.trifonovkv.production.ui.journal.StatisticFragment"
+        android:name="com.trifonovkv.production.ui.journal.JournalFragment"
         android:label="fragment_statistic">
         <action
             android:id="@+id/action_blankFragment_to_navigation_calc"
