@@ -21,7 +21,6 @@ class JournalFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         dbHelper = ProductionDbHelper(requireContext())
     }
 
@@ -44,7 +43,7 @@ class JournalFragment : Fragment() {
         activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         binding.recyclerviewStatistic.layoutManager = LinearLayoutManager(activity)
-        val productionEntries = ProductionJournal(dbHelper).getEntries()
+        val productionEntries = ProductionJournal(dbHelper).getEntriesForLastMonth()
         binding.recyclerviewStatistic.adapter = JournalRecyclerAdapter(productionEntries)
 
         binding.textViewAdryTotal.text = productionEntries.sumOf { it.adry }.toString()

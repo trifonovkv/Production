@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_navigation_calc_to_blankFragment"
             app:destination="@id/navigation_journal" />
+        <action
+            android:id="@+id/action_navigation_calc_to_navigation_salary"
+            app:destination="@id/navigation_salary" />
     </fragment>
     <fragment
         android:id="@+id/navigation_settings"
@@ -32,6 +35,15 @@
         android:label="fragment_statistic">
         <action
             android:id="@+id/action_blankFragment_to_navigation_calc"
+            app:destination="@id/navigation_calc" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_salary"
+        android:name="com.trifonovkv.production.ui.salary.SalaryFragment"
+        android:label="fragment_salary"
+        tools:layout="@layout/fragment_salary" >
+        <action
+            android:id="@+id/action_navigation_salary_to_navigation_calc"
             app:destination="@id/navigation_calc" />
     </fragment>
 

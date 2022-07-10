@@ -1,78 +1,72 @@
 package com.trifonovkv.production.ui.settings
 
-import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
-import androidx.preference.PreferenceManager
 import com.trifonovkv.production.MainActivity
 import com.trifonovkv.production.databinding.FragmentSettingsBinding
-
+import com.trifonovkv.production.getKopecksFromRubles
+import com.trifonovkv.production.setRubles
+import com.trifonovkv.production.toFloat
+import com.trifonovkv.production.ui.PricesPreferences
 
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
+    private lateinit var pricesPreferences: PricesPreferences
 
-    private lateinit var sharedPrefs: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
         val root: View = binding.root
 
         (requireActivity() as MainActivity).supportActionBar!!.hide()
 
-        val shiftPrice = sharedPrefs.getString("shift_price", "900").toString()
-        val adryPrice = sharedPrefs.getString("adry_price", "1.30").toString()
-        val afreshPrice = sharedPrefs.getString("afresh_price", "1.90").toString()
-        val afrostPrice = sharedPrefs.getString("afrost_price", "2.54").toString()
-        val afruitPrice = sharedPrefs.getString("afruit_price", "2.54").toString()
-        val alcoPrice = sharedPrefs.getString("alco_price", "1.50").toString()
-        val amezPrice = sharedPrefs.getString("amez_price", "1.50").toString()
-        val holod3Price = sharedPrefs.getString("holod3_price", "1.30").toString()
+        pricesPreferences = PricesPreferences(context!!)
+        val prices = pricesPreferences.getPrices()
 
-        binding.editTextShiftPrice.setText(shiftPrice)
-        binding.editTextAdryPrice.setText(adryPrice)
-        binding.editTextAfreshPrice.setText(afreshPrice)
-        binding.editTextAfrostPrice.setText(afrostPrice)
-        binding.editTextAfruitPrice.setText(afruitPrice)
-        binding.editTextAlcoPrice.setText(alcoPrice)
-        binding.editTextAmezPrice.setText(amezPrice)
-        binding.editTextHolod3Price.setText(holod3Price)
+        binding.etShiftPrice.setRubles(prices.shift, isHaveKopecks = false, isRubleSign = false)
+        binding.etAdryPrice.setRubles(prices.adry, isHaveKopecks = true, isRubleSign = false)
+        binding.etAfreshPrice.setRubles(prices.afresh, isHaveKopecks = true, isRubleSign = false)
+        binding.etAfrostPrice.setRubles(prices.afrost, isHaveKopecks = true, isRubleSign = false)
+        binding.etAfruitPrice.setRubles(prices.afruit, isHaveKopecks = true, isRubleSign = false)
+        binding.etAlcoPrice.setRubles(prices.alco, isHaveKopecks = true, isRubleSign = false)
+        binding.etAmezPrice.setRubles(prices.amez, isHaveKopecks = true, isRubleSign = false)
+        binding.etHolod3Price.setRubles(prices.holod3, isHaveKopecks = true, isRubleSign = false)
 
-        val editor = sharedPrefs.edit()
 
-        binding.editTextShiftPrice.doAfterTextChanged {
-            editor.putString("shift_price", "$it").apply()
+        binding.etShiftPrice.doAfterTextChanged {
+            pricesPreferences.putShiftPrice(it.getKopecksFromRubles())
         }
 
-        binding.editTextAdryPrice.doAfterTextChanged {
-            editor.putString("adry_price", "$it").apply()
+        binding.etAdryPrice.doAfterTextChanged {
+            pricesPreferences.putAdryPrice(it.getKopecksFromRubles())
         }
-        binding.editTextAfreshPrice.doAfterTextChanged {
-            editor.putString("afresh_price", "$it").apply()
+        binding.etAfreshPrice.doAfterTextChanged {
+            pricesPreferences.putAfreshPrice(it.getKopecksFromRubles())
         }
-        binding.editTextAfrostPrice.doAfterTextChanged {
-            editor.putString("afrost_price", "$it").apply()
+        binding.etAfrostPrice.doAfterTextChanged {
+            pricesPreferences.putAfrostPrice(it.getKopecksFromRubles())
         }
-        binding.editTextAfruitPrice.doAfterTextChanged {
-            editor.putString("afruit_price", "$it").apply()
+        binding.etAfruitPrice.doAfterTextChanged {
+            pricesPreferences.putAfruitPrice(it.getKopecksFromRubles())
         }
-        binding.editTextAlcoPrice.doAfterTextChanged {
-            editor.putString("alco_price", "$it").apply()
+        binding.etAlcoPrice.doAfterTextChanged {
+            pricesPreferences.putAlcoPrice(it.getKopecksFromRubles())
         }
-        binding.editTextAmezPrice.doAfterTextChanged {
-            editor.putString("amez_price", "$it").apply()
+        binding.etAmezPrice.doAfterTextChanged {
+            pricesPreferences.putAmezPrice(it.getKopecksFromRubles())
         }
-        binding.editTextHolod3Price.doAfterTextChanged {
-            editor.putString("holod3_price", "$it").apply()
+        binding.etHolod3Price.doAfterTextChanged {
+            pricesPreferences.putHolod3Price(it.getKopecksFromRubles())
         }
 
         return root

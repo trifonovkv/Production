@@ -1,117 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.trifonovkv.production.ui.calc.CalcFragment"
-        android:orientation="vertical"
-        android:padding="16dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.trifonovkv.production.ui.calc.CalcFragment">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:fontFamily="@font/jura"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:paddingBottom="8dp">
+            android:text="@string/handpicked"
+            android:textAlignment="textEnd"
+            android:textColor="@color/gray"
+            android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/jura"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="@string/handpicked"
-                android:textAlignment="textEnd"
-                android:textColor="@color/gray"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/textViewHandpicked"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:fontFamily="@font/russo_one"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="@string/zero_rubles"
-                android:textAlignment="textEnd"
-                android:textColor="@color/white_100"
-                android:textSize="30sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvHandpicked"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_weight="0"
+            android:fontFamily="@font/russo_one"
             android:paddingStart="8dp"
-            android:paddingEnd="8dp">
+            android:paddingEnd="8dp"
+            android:text="@string/zero_rubles"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white_100"
+            android:textSize="30sp" />
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/jura"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="@string/shift_fee"
-                android:textAlignment="textEnd"
-                android:textColor="@color/gray"
-                android:textSize="14sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
 
-            <TextView
-                android:id="@+id/textViewShiftFee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:fontFamily="@font/montserrat_alternates"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="@string/zero_rubles"
-                android:textAlignment="textEnd"
-                android:textColor="@color/gray"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:fontFamily="@font/jura"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/shift_fee"
+            android:textAlignment="textEnd"
+            android:textColor="@color/gray"
+            android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/jura"
-                android:gravity="end"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="@string/result"
-                android:textColor="@color/gray"
-                android:textSize="14sp" />
+        <TextView
+            android:id="@+id/tvShiftFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:fontFamily="@font/montserrat_alternates"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/zero_rubles"
+            android:textAlignment="textEnd"
+            android:textColor="@color/gray"
+            android:textSize="20sp" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/textViewMainResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/russo_one"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:text="@string/zero_rubles"
-                android:textColor="@color/white_100"
-                android:textSize="40sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/jura"
+            android:gravity="end"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/result"
+            android:textColor="@color/gray"
+            android:textSize="14sp" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/cacao" />
+        <TextView
+            android:id="@+id/tvMainResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/russo_one"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/zero_rubles"
+            android:textColor="@color/white_100"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cacao" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -120,7 +119,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -146,11 +145,11 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textViewAdryResult"
+                    android:id="@+id/tvAdryResult"
                     style="@style/position_result" />
 
                 <EditText
-                    android:id="@+id/editTextAdry"
+                    android:id="@+id/etAdry"
                     style="@style/position_enter_count"
                     android:importantForAutofill="no"
                     tools:ignore="LabelFor" />
@@ -181,11 +180,11 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textViewAfreshResult"
+                    android:id="@+id/tvAfreshResult"
                     style="@style/position_result" />
 
                 <EditText
-                    android:id="@+id/editTextAfresh"
+                    android:id="@+id/etAfresh"
                     style="@style/position_enter_count"
                     tools:ignore="Autofill,LabelFor" />
 
@@ -215,11 +214,11 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textViewAfrostResult"
+                    android:id="@+id/tvAfrostResult"
                     style="@style/position_result" />
 
                 <EditText
-                    android:id="@+id/editTextAfrost"
+                    android:id="@+id/etAfrost"
                     style="@style/position_enter_count"
                     tools:ignore="Autofill,LabelFor" />
 
@@ -249,11 +248,11 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textViewAfruitResult"
+                    android:id="@+id/tvAfruitResult"
                     style="@style/position_result" />
 
                 <EditText
-                    android:id="@+id/editTextAfruit"
+                    android:id="@+id/etAfruit"
                     style="@style/position_enter_count"
                     tools:ignore="Autofill,LabelFor" />
 
@@ -283,11 +282,11 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textViewAlcoResult"
+                    android:id="@+id/tvAlcoResult"
                     style="@style/position_result" />
 
                 <EditText
-                    android:id="@+id/editTextAlco"
+                    android:id="@+id/etAlco"
                     style="@style/position_enter_count"
                     tools:ignore="Autofill,LabelFor" />
 
@@ -317,11 +316,11 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textViewAmezResult"
+                    android:id="@+id/tvAmezResult"
                     style="@style/position_result" />
 
                 <EditText
-                    android:id="@+id/editTextAmez"
+                    android:id="@+id/etAmez"
                     style="@style/position_enter_count"
                     tools:ignore="Autofill,LabelFor" />
 
@@ -351,11 +350,11 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textViewHolod3Result"
+                    android:id="@+id/tvHolod3Result"
                     style="@style/position_result" />
 
                 <EditText
-                    android:id="@+id/editTextHolod3"
+                    android:id="@+id/etHolod3"
                     style="@style/position_enter_count"
                     tools:ignore="Autofill,LabelFor" />
 

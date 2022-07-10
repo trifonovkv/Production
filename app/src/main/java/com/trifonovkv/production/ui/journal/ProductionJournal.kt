@@ -104,7 +104,7 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
 
     }
 
-    fun getEntries(): List<ProductionEntry> {
+    fun getEntriesForLastMonth(): List<ProductionEntry> {
         val db = dbHelper.readableDatabase
 
         // Define a projection that specifies which columns from the database

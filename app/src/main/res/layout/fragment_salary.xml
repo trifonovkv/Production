@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.trifonovkv.production.ui.salary.SalaryFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:text="@string/number_of_shifts"
+            style="@style/salary_label" />
+
+        <TextView
+            android:id="@+id/tvShiftCount"
+            android:text="@string/zero_count"
+            style="@style/salary_text_view" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            style="@style/salary_label"
+            android:text="@string/average_packs" />
+
+        <TextView
+            android:id="@+id/tvAveragePackages"
+            style="@style/salary_text_view"
+            android:text="@string/zero_count" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            style="@style/salary_label"
+            android:text="@string/earned" />
+
+        <TextView
+            android:id="@+id/tvEarned"
+            style="@style/salary_text_view"
+            android:text="@string/zero_rubles" />
+
+    </LinearLayout>
+</LinearLayout>

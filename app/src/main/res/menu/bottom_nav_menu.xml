@@ -3,13 +3,18 @@
 
     <item
         android:id="@+id/navigation_calc"
-        android:icon="@drawable/ic_baseline_calculate_black_24dp"
+        android:icon="@drawable/ic_baseline_calculate_black_24"
         android:title="@string/title_calc" />
 
     <item
         android:id="@+id/navigation_journal"
         android:icon="@drawable/ic_baseline_menu_book_24"
         android:title="@string/journal" />
+
+    <item
+        android:id="@+id/navigation_salary"
+        android:icon="@drawable/ic_baseline_attach_money_24"
+        android:title="@string/salary" />
 
     <item
         android:id="@+id/navigation_settings"
