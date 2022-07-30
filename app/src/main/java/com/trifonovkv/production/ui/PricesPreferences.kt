@@ -29,7 +29,7 @@ class PricesPreferences(context: Context) {
             sharedPrefs.getInt("afrost_price", 254),
             sharedPrefs.getInt("afruit_price", 254),
             sharedPrefs.getInt("alco_price", 150),
-            sharedPrefs.getInt("amez_price", 150),
+            sharedPrefs.getInt("amez_price", 113),
             sharedPrefs.getInt("holod3_price", 130),
         )
     }

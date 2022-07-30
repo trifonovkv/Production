@@ -135,22 +135,23 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         )
 
 
-
         // the cursor starts at position -1
         val productionEntries = arrayListOf<ProductionEntry>()
         with(cursor) {
             while (moveToNext()) {
-                productionEntries.add(ProductionEntry(
-                    getLong(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_DATE)),
-                    getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_ADRY)),
-                    getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AFRESH)),
-                    getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AFROST)),
-                    getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AFRUIT)),
-                    getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_ALCO)),
-                    getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AMEZ)),
-                    getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_HOLOD3)),
-                    getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_TOTAL))
-                ))
+                productionEntries.add(
+                    ProductionEntry(
+                        getLong(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_DATE)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_ADRY)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AFRESH)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AFROST)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AFRUIT)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_ALCO)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AMEZ)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_HOLOD3)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_TOTAL))
+                    )
+                )
             }
         }
         cursor.close()
@@ -161,8 +162,10 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
     }
 
     // previous month 25 - current month 24
-    private fun isValidDatePeriod(epoch: Long) : Boolean {
-        val endDate = LocalDate.now().withDayOfMonth(25)
+    private fun isValidDatePeriod(epoch: Long): Boolean {
+        val now = LocalDate.now()
+        val endDate = if (now.dayOfMonth < 25) now.withDayOfMonth(25)
+        else now.plusMonths(1).withDayOfMonth(25)
         val startDate = endDate.minusMonths(1).minusDays(1)
         val testDate = Instant.ofEpochMilli(epoch).atZone(ZoneId.systemDefault()).toLocalDate()
         return testDate.isAfter(startDate) && testDate.isBefore(endDate)
