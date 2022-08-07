@@ -161,6 +161,29 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         }
     }
 
+
+    fun hasEntryWithSameDate(date: Long): Boolean {
+
+        val db = dbHelper.readableDatabase
+        val cursor = db.query(
+            ProductionContract.FeedEntry.TABLE_NAME,
+            arrayOf(ProductionContract.FeedEntry.COLUMN_NAME_DATE),
+            null,
+            null,
+            null,
+            null,
+            BaseColumns._ID + " DESC",
+            "1"
+        )
+
+        cursor.moveToNext()
+        val date2 = cursor.getLong(cursor.getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_DATE))
+        cursor.close()
+
+        return date - date2 > 86400 // 24 hours
+
+    }
+
     // previous month 25 - current month 24
     private fun isValidDatePeriod(epoch: Long): Boolean {
         val now = LocalDate.now()

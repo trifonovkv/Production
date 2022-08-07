@@ -55,21 +55,26 @@ class CalcFragment : Fragment() {
         binding.imageButtonSave.setOnClickListener {
             val productionJournal = ProductionJournal(dbHelper)
             val data = System.currentTimeMillis()
-            val adry = binding.etAdry.text.toString().toIntOrNull() ?: 0
-            val afresh = binding.etAfresh.text.toString().toIntOrNull() ?: 0
-            val afrost = binding.etAfrost.text.toString().toIntOrNull() ?: 0
-            val afruit = binding.etAfruit.text.toString().toIntOrNull() ?: 0
-            val alco = binding.etAlco.text.toString().toIntOrNull() ?: 0
-            val amez = binding.etAmez.text.toString().toIntOrNull() ?: 0
-            val holod3 = binding.etHolod3.text.toString().toIntOrNull() ?: 0
-            val total = adry + afresh + afrost + afruit + alco + amez + holod3
-            productionJournal.addEntry(
-                ProductionEntry(
-                    data, adry, afresh, afrost, afruit, alco, amez, holod3, total
-                )
-            )
 
-            Toast.makeText(context, getString(R.string.saved), Toast.LENGTH_SHORT).show()
+            if (productionJournal.hasEntryWithSameDate(data)) {
+                Toast.makeText(context, getString(R.string.already_wrote), Toast.LENGTH_LONG).show()
+            } else {
+                val adry = binding.etAdry.text.toString().toIntOrNull() ?: 0
+                val afresh = binding.etAfresh.text.toString().toIntOrNull() ?: 0
+                val afrost = binding.etAfrost.text.toString().toIntOrNull() ?: 0
+                val afruit = binding.etAfruit.text.toString().toIntOrNull() ?: 0
+                val alco = binding.etAlco.text.toString().toIntOrNull() ?: 0
+                val amez = binding.etAmez.text.toString().toIntOrNull() ?: 0
+                val holod3 = binding.etHolod3.text.toString().toIntOrNull() ?: 0
+                val total = adry + afresh + afrost + afruit + alco + amez + holod3
+                productionJournal.addEntry(
+                    ProductionEntry(
+                        data, adry, afresh, afrost, afruit, alco, amez, holod3, total
+                    )
+                )
+
+                Toast.makeText(context, getString(R.string.saved), Toast.LENGTH_SHORT).show()
+            }
         }
 
         return root

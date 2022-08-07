@@ -32,6 +32,7 @@
     <string name="shift_out">Выход</string>
     <string name="journal">Журнал</string>
     <string name="saved">Сохранено</string>
+    <string name="already_wrote">Уже есть запись с такой датой</string>
     <string name="salary">Заработок</string>
     <string name="average_packs">Среднее упаковок</string>
     <string name="earned">Заработано</string>
