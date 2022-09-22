@@ -65,6 +65,35 @@ class SalaryFragment : Fragment() {
         binding.tvEarned.setRubles(totalResult, isHaveKopecks = false, isRubleSign = true)
 
 
+        val productionEntriesPreviousMonth = ProductionJournal(dbHelper).getEntriesForPreviousMonth()
+
+        val numberOfShiftsPreviousMonth = productionEntriesPreviousMonth.size
+        binding.tvShiftCountPreviousMonth.text = numberOfShiftsPreviousMonth.toString()
+        if (numberOfShiftsPreviousMonth > 0) {
+            binding.tvAveragePackagesPreviousMonth.text =
+                (productionEntriesPreviousMonth.sumOf { it.total } / numberOfShiftsPreviousMonth).toString()
+        }
+        else {
+            binding.tvAveragePackagesPreviousMonth.text = "0"
+        }
+
+
+        val pricesPreviousMonth = PricesPreferences(context!!).getPrices()
+
+        val totalResultPreviousMonth =
+            productionEntriesPreviousMonth.size * pricesPreviousMonth.shift +
+                    productionEntriesPreviousMonth.sumOf { it.adry } * pricesPreviousMonth.adry +
+                    productionEntriesPreviousMonth.sumOf { it.afresh } * pricesPreviousMonth.afresh +
+                    productionEntriesPreviousMonth.sumOf { it.afrost } * pricesPreviousMonth.afrost +
+                    productionEntriesPreviousMonth.sumOf { it.afruit } * pricesPreviousMonth.afruit +
+                    productionEntriesPreviousMonth.sumOf { it.alco } * pricesPreviousMonth.alco +
+                    productionEntriesPreviousMonth.sumOf { it.amez } * pricesPreviousMonth.amez +
+                    productionEntriesPreviousMonth.sumOf { it.holod3 } * pricesPreviousMonth.holod3
+
+
+        binding.tvEarnedPreviousMonth.setRubles(totalResultPreviousMonth, isHaveKopecks = false, isRubleSign = true)
+
+
         // Inflate the layout for this fragment
         return root
     }

@@ -157,7 +157,65 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         cursor.close()
 
         return productionEntries.filter {
-            isValidDatePeriod(it.date)
+            isLastMonthDate(it.date)
+        }
+    }
+
+
+    fun getEntriesForPreviousMonth(): List<ProductionEntry> {
+        val db = dbHelper.readableDatabase
+
+        // Define a projection that specifies which columns from the database
+        // you will actually use after this query.
+        val projection = arrayOf(
+            BaseColumns._ID,
+            ProductionContract.FeedEntry.COLUMN_NAME_DATE,
+            ProductionContract.FeedEntry.COLUMN_NAME_ADRY,
+            ProductionContract.FeedEntry.COLUMN_NAME_AFRESH,
+            ProductionContract.FeedEntry.COLUMN_NAME_AFROST,
+            ProductionContract.FeedEntry.COLUMN_NAME_AFRUIT,
+            ProductionContract.FeedEntry.COLUMN_NAME_ALCO,
+            ProductionContract.FeedEntry.COLUMN_NAME_AMEZ,
+            ProductionContract.FeedEntry.COLUMN_NAME_HOLOD3,
+            ProductionContract.FeedEntry.COLUMN_NAME_TOTAL
+        )
+
+
+        val sortOrder = "${ProductionContract.FeedEntry.COLUMN_NAME_DATE} ASC"
+        val cursor = db.query(
+            ProductionContract.FeedEntry.TABLE_NAME,   // The table to query
+            projection,             // The array of columns to return (pass null to get all)
+            null,              // The columns for the WHERE clause
+            null,          // The values for the WHERE clause
+            null,                   // don't group the rows
+            null,                   // don't filter by row groups
+            sortOrder               // The sort order
+        )
+
+
+        // the cursor starts at position -1
+        val productionEntries = arrayListOf<ProductionEntry>()
+        with(cursor) {
+            while (moveToNext()) {
+                productionEntries.add(
+                    ProductionEntry(
+                        getLong(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_DATE)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_ADRY)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AFRESH)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AFROST)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AFRUIT)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_ALCO)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_AMEZ)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_HOLOD3)),
+                        getInt(getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_TOTAL))
+                    )
+                )
+            }
+        }
+        cursor.close()
+
+        return productionEntries.filter {
+            isPreviousMonthDate(it.date)
         }
     }
 
@@ -180,15 +238,25 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         val date2 = cursor.getLong(cursor.getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_DATE))
         cursor.close()
 
-        return date - date2 > 86400 // 24 hours
+        return date - date2 < 86400 // 24 hours
 
     }
 
     // previous month 25 - current month 24
-    private fun isValidDatePeriod(epoch: Long): Boolean {
+    private fun isLastMonthDate(epoch: Long): Boolean {
         val now = LocalDate.now()
         val endDate = if (now.dayOfMonth < 25) now.withDayOfMonth(25)
         else now.plusMonths(1).withDayOfMonth(25)
+        val startDate = endDate.minusMonths(1).minusDays(1)
+        val testDate = Instant.ofEpochMilli(epoch).atZone(ZoneId.systemDefault()).toLocalDate()
+        return testDate.isAfter(startDate) && testDate.isBefore(endDate)
+    }
+
+    // two months ago 25 - previous month 24
+    private fun isPreviousMonthDate(epoch: Long): Boolean {
+        val previousMonth = LocalDate.now().minusMonths(1)
+        val endDate = if (previousMonth.dayOfMonth < 25) previousMonth.withDayOfMonth(25)
+        else previousMonth.plusMonths(1).withDayOfMonth(25)
         val startDate = endDate.minusMonths(1).minusDays(1)
         val testDate = Instant.ofEpochMilli(epoch).atZone(ZoneId.systemDefault()).toLocalDate()
         return testDate.isAfter(startDate) && testDate.isBefore(endDate)
