@@ -235,10 +235,17 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         )
 
         cursor.moveToNext()
-        val date2 = cursor.getLong(cursor.getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_DATE))
+        // check if db is first run and empty
+        val date2: Long
+        try {
+            date2 = cursor.getLong(cursor.getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_DATE))
+        }
+        catch (e: Exception) {
+            return false
+        }
         cursor.close()
 
-        return date - date2 < 86400 // 24 hours
+        return date - date2 < 8.64e+7 // 24 hours in milliseconds
 
     }
 
