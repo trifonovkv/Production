@@ -39,4 +39,6 @@
     <string name="number_of_shifts">Количество смен</string>
     <string name="previous_month">Предыдущий месяц</string>
     <string name="current_month">Текущий месяц</string>
+    <string name="clear">C</string>
+    <string name="save_button">save button</string>
 </resources>

@@ -77,6 +77,16 @@ class CalcFragment : Fragment() {
             }
         }
 
+        binding.tvClear.setOnClickListener {
+            binding.etAdry.setText(R.string.zero_count)
+            binding.etAfresh.setText(R.string.zero_count)
+            binding.etAfrost.setText(R.string.zero_count)
+            binding.etAfruit.setText(R.string.zero_count)
+            binding.etAlco.setText(R.string.zero_count)
+            binding.etAmez.setText(R.string.zero_count)
+            binding.etHolod3.setText(R.string.zero_count)
+        }
+
         return root
     }
 

@@ -364,14 +364,35 @@
         </LinearLayout>
     </ScrollView>
 
-    <ImageButton
-        android:id="@+id/imageButtonSave"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_margin="32dp"
-        android:background="@null"
-        android:src="@drawable/ic_baseline_save_48"
-        app:tint="@color/cacao" />
+        android:gravity="end"
+        android:padding="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvClear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end|center_vertical"
+            android:textSize="48sp"
+            android:fontFamily="@font/montserrat_alternates"
+            android:padding="16dp"
+            android:textColor="@color/cacao"
+            android:text="@string/clear" />
+
+        <ImageButton
+            android:id="@+id/imageButtonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|center_vertical"
+            android:background="@null"
+            android:padding="16dp"
+            android:src="@drawable/ic_baseline_save_48"
+            app:tint="@color/cacao"
+            android:contentDescription="@string/save_button" />
+    </LinearLayout>
 
 </LinearLayout>
