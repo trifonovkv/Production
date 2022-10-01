@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import com.trifonovkv.production.MainActivity
 import com.trifonovkv.production.R
 import com.trifonovkv.production.databinding.FragmentCalcBinding
-import com.trifonovkv.production.MainActivity
 import com.trifonovkv.production.setRubles
 import com.trifonovkv.production.ui.PricesPreferences
 import com.trifonovkv.production.ui.journal.ProductionDbHelper
@@ -52,28 +52,13 @@ class CalcFragment : Fragment() {
         dbHelper = ProductionDbHelper(requireContext())
         pricesPreferences = PricesPreferences(context!!)
 
+
         binding.imageButtonSave.setOnClickListener {
-            val productionJournal = ProductionJournal(dbHelper)
-            val data = System.currentTimeMillis()
-
-            if (productionJournal.hasEntryWithSameDate(data)) {
-                Toast.makeText(context, getString(R.string.already_wrote), Toast.LENGTH_LONG).show()
+            // if entry with same date exist show dialog, otherwise save entry
+            if (ProductionJournal(dbHelper).hasEntryWithSameDate(System.currentTimeMillis())) {
+                SaveDialogFragment(this).show(savedInstanceState)
             } else {
-                val adry = binding.etAdry.text.toString().toIntOrNull() ?: 0
-                val afresh = binding.etAfresh.text.toString().toIntOrNull() ?: 0
-                val afrost = binding.etAfrost.text.toString().toIntOrNull() ?: 0
-                val afruit = binding.etAfruit.text.toString().toIntOrNull() ?: 0
-                val alco = binding.etAlco.text.toString().toIntOrNull() ?: 0
-                val amez = binding.etAmez.text.toString().toIntOrNull() ?: 0
-                val holod3 = binding.etHolod3.text.toString().toIntOrNull() ?: 0
-                val total = adry + afresh + afrost + afruit + alco + amez + holod3
-                productionJournal.addEntry(
-                    ProductionEntry(
-                        data, adry, afresh, afrost, afruit, alco, amez, holod3, total
-                    )
-                )
-
-                Toast.makeText(context, getString(R.string.saved), Toast.LENGTH_SHORT).show()
+                save()
             }
         }
 
@@ -137,6 +122,30 @@ class CalcFragment : Fragment() {
             isHaveKopecks = false,
             isRubleSign = true
         )
+    }
+
+    private fun save() {
+        val productionJournal = ProductionJournal(dbHelper)
+        val date = System.currentTimeMillis()
+
+        val adry = binding.etAdry.text.toString().toIntOrNull() ?: 0
+        val afresh = binding.etAfresh.text.toString().toIntOrNull() ?: 0
+        val afrost = binding.etAfrost.text.toString().toIntOrNull() ?: 0
+        val afruit = binding.etAfruit.text.toString().toIntOrNull() ?: 0
+        val alco = binding.etAlco.text.toString().toIntOrNull() ?: 0
+        val amez = binding.etAmez.text.toString().toIntOrNull() ?: 0
+        val holod3 = binding.etHolod3.text.toString().toIntOrNull() ?: 0
+        val total = adry + afresh + afrost + afruit + alco + amez + holod3
+        val productionEntry = ProductionEntry(
+            date, adry, afresh, afrost, afruit, alco, amez, holod3, total
+        )
+
+        productionJournal.addEntry(productionEntry)
+        Toast.makeText(context, getString(R.string.saved), Toast.LENGTH_SHORT).show()
+    }
+
+    fun doPositiveClick() {
+        save()
     }
 }
 

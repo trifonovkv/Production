@@ -41,4 +41,10 @@
     <string name="current_month">Текущий месяц</string>
     <string name="clear">C</string>
     <string name="save_button">save button</string>
+
+    <string name="there_is_a_record_with_this_date">Уже есть запись с такой датой</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+
+
 </resources>
