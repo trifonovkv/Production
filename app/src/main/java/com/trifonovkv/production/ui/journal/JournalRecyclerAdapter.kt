@@ -38,7 +38,7 @@ class JournalRecyclerAdapter(private val entries: List<ProductionEntry>) :
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.textViewDate.text = SimpleDateFormat("dd.MM.yyyy").format(entries[position].date)
+        holder.textViewDate.text = SimpleDateFormat("dd.MM").format(entries[position].date)
         holder.textViewAdry.text = entries[position].adry.toString()
         holder.textViewAfresh.text = entries[position].afresh.toString()
         holder.textViewAfrost.text = entries[position].afrost.toString()

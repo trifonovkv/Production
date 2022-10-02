@@ -1,118 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp" >
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    android:padding="8dp">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="89dp"
+        android:layout_gravity="clip_vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             style="@style/table_title"
-            android:text="Дата" />
+            android:text="@string/date_vertical" />
 
         <TextView
             style="@style/table_title"
-            android:text="@string/adry" />
+            android:text="@string/adry_vertical" />
 
         <TextView
             style="@style/table_title"
-            android:text="@string/afresh" />
+            android:text="@string/afresh_vertical" />
 
         <TextView
             style="@style/table_title"
-            android:text="@string/afrost" />
+            android:text="@string/afrost_vertical" />
 
         <TextView
             style="@style/table_title"
-            android:text="@string/afruit" />
+            android:text="@string/afruit_vertical" />
 
         <TextView
             style="@style/table_title"
-            android:text="@string/alco" />
+            android:text="@string/alco_vertical" />
 
         <TextView
             style="@style/table_title"
-            android:text="@string/amez" />
+            android:text="@string/amez_vertical" />
 
         <TextView
             style="@style/table_title"
-            android:text="@string/holod3" />
+            android:text="@string/holod3_vertical" />
 
         <TextView
             style="@style/table_title"
-            android:text="Всего" />
+            android:text="@string/total_vertical" />
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewStatistic"
         android:layout_width="match_parent"
-        android:layout_height="0px"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_weight="1"
         android:scrollbars="vertical"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:listitem="@layout/recyclerview_item" />
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/cacao" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/cacao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerviewStatistic" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         android:paddingTop="8dp"
-        android:paddingBottom="32dp">
+        android:paddingBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
 
         <TextView
+            style="@style/table_total"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tvAdryTotal"
             style="@style/table_total" />
 
         <TextView
-            android:id="@+id/textViewAdryTotal"
-            style="@style/table_total"
-            android:text="0" />
+            android:id="@+id/tvAfreshTotal"
+            style="@style/table_total" />
 
         <TextView
-            android:id="@+id/textViewAfreshTotal"
-            style="@style/table_total"
-            android:text="0" />
+            android:id="@+id/tvAfrostTotal"
+            style="@style/table_total" />
 
         <TextView
-            android:id="@+id/textViewAfrostTotal"
-            style="@style/table_total"
-            android:text="0" />
+            android:id="@+id/tvAfruitTotal"
+            style="@style/table_total" />
 
         <TextView
-            android:id="@+id/textViewAfruitTotal"
-            style="@style/table_total"
-            android:text="0" />
+            android:id="@+id/tvAlcoTotal"
+            style="@style/table_total" />
 
         <TextView
-            android:id="@+id/textViewAlcoTotal"
-            style="@style/table_total"
-            android:text="0" />
+            android:id="@+id/tvAmezTotal"
+            style="@style/table_total" />
 
         <TextView
-            android:id="@+id/textViewAmezTotal"
-            style="@style/table_total"
-            android:text="0" />
+            android:id="@+id/tvHolod3Total"
+            style="@style/table_total" />
 
         <TextView
-            android:id="@+id/textViewHolod3Total"
-            style="@style/table_total"
-            android:text="0" />
-
-        <TextView
-            android:id="@+id/textViewTotalTotal"
-            style="@style/table_total"
-            android:text="0" />
+            android:id="@+id/tvTotalTotal"
+            style="@style/table_total" />
     </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

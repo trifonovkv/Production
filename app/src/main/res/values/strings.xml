@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Выработка</string>
     <string name="title_calc">Калькулятор</string>
     <string name="title_settings">Настройки</string>
@@ -11,13 +12,22 @@
     <string name="amez">AMEZ</string>
     <string name="holod3">HOLOD3</string>
 
-    <string name="hint">0</string>
+    <string name="date_vertical">Д\nа\nт\nа</string>
+    <string name="adry_vertical">A\nD\nR\nY</string>
+    <string name="afresh_vertical">A\nF\nR\nE\nS\nH</string>
+    <string name="afrost_vertical">A\nF\nR\nO\nS\nT</string>
+    <string name="afruit_vertical">A\nF\nR\nU\nI\nT</string>
+    <string name="alco_vertical">A\nL\nC\nO</string>
+    <string name="amez_vertical">A\nM\nE\nZ</string>
+    <string name="holod3_vertical">H\nO\nL\nO\nD\n3</string>
+    <string name="total_vertical">В\nс\nе\nг\nо</string>
+
     <string name="handpicked">Отобрано</string>
     <string name="zero_rubles">0₽</string>
     <string name="shift_fee">Выход</string>
     <string name="result">Итого</string>
     <string name="adry_subtext">Сухой</string>
-    <string name="zero_count">0</string>
+    <string name="zero">0</string>
     <string name="pieces">шт.</string>
     <string name="afresh_subtext">Охлаждёнка</string>
     <string name="afrost_subtext">Заморозка</string>
@@ -27,7 +37,6 @@
     <string name="holod3_subtext">Вода</string>
 
     <string name="ruble_sign">₽</string>
-
 
     <string name="shift_out">Выход</string>
     <string name="journal">Журнал</string>
@@ -45,6 +54,5 @@
     <string name="there_is_a_record_with_this_date">Уже есть запись с такой датой</string>
     <string name="save">Сохранить</string>
     <string name="cancel">Отмена</string>
-
 
 </resources>

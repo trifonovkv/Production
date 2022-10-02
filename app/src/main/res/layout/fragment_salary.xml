@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/tvShiftCountPreviousMonth"
-            android:text="@string/zero_count"
+            android:text="@string/zero"
             style="@style/salary_text_view" />
 
     </LinearLayout>
@@ -71,7 +71,7 @@
         <TextView
             android:id="@+id/tvAveragePackagesPreviousMonth"
             style="@style/salary_text_view"
-            android:text="@string/zero_count" />
+            android:text="@string/zero" />
     </LinearLayout>
 
     <LinearLayout
@@ -134,7 +134,7 @@
 
         <TextView
             android:id="@+id/tvShiftCount"
-            android:text="@string/zero_count"
+            android:text="@string/zero"
             style="@style/salary_text_view" />
 
     </LinearLayout>
@@ -153,7 +153,7 @@
         <TextView
             android:id="@+id/tvAveragePackages"
             style="@style/salary_text_view"
-            android:text="@string/zero_count" />
+            android:text="@string/zero" />
     </LinearLayout>
 
     <LinearLayout
