@@ -3,6 +3,7 @@ package com.trifonovkv.production
 import android.text.Editable
 import android.widget.EditText
 import android.widget.TextView
+import java.text.DecimalFormat
 import java.util.*
 
 fun TextView.setRubles(kopecks: Int, isHaveKopecks: Boolean, isRubleSign: Boolean) {
@@ -11,10 +12,13 @@ fun TextView.setRubles(kopecks: Int, isHaveKopecks: Boolean, isRubleSign: Boolea
     } else {
         (kopecks / 100).toString()
     }
+
+    val formattedNumber = DecimalFormat("###,###").format(string.toDouble()).replace(',', ' ')
+
     this.text = if (isRubleSign) {
-        "$string${resources.getString(R.string.ruble_sign)}"
+        "$formattedNumber${resources.getString(R.string.ruble_sign)}"
     } else {
-        string
+        formattedNumber
     }
 }
 
