@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.provider.BaseColumns
 import java.time.Instant
-import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZoneId
 
 object ProductionContract {
@@ -157,7 +157,7 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         cursor.close()
 
         return productionEntries.filter {
-            isLastMonthDate(it.date)
+            isDateInWorkingMonth(it.date, 0)
         }
     }
 
@@ -215,13 +215,12 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         cursor.close()
 
         return productionEntries.filter {
-            isPreviousMonthDate(it.date)
+            isDateInWorkingMonth(it.date, -1)
         }
     }
 
 
     fun hasEntryWithSameDate(date: Long): Boolean {
-
         val db = dbHelper.readableDatabase
         val cursor = db.query(
             ProductionContract.FeedEntry.TABLE_NAME,
@@ -230,7 +229,7 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
             null,
             null,
             null,
-            BaseColumns._ID + " DESC",
+            ProductionContract.FeedEntry.COLUMN_NAME_DATE + " DESC",
             "1"
         )
 
@@ -238,9 +237,9 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         // check if db is first run and empty
         val date2: Long
         try {
-            date2 = cursor.getLong(cursor.getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_DATE))
-        }
-        catch (e: Exception) {
+            date2 =
+                cursor.getLong(cursor.getColumnIndexOrThrow(ProductionContract.FeedEntry.COLUMN_NAME_DATE))
+        } catch (e: Exception) {
             return false
         }
         cursor.close()
@@ -248,24 +247,26 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         return date - date2 < 8.64e+7 // 24 hours in milliseconds
 
     }
+}
 
-    // previous month 25 - current month 24
-    private fun isLastMonthDate(epoch: Long): Boolean {
-        val now = LocalDate.now()
-        val endDate = if (now.dayOfMonth < 25) now.withDayOfMonth(25)
-        else now.plusMonths(1).withDayOfMonth(25)
-        val startDate = endDate.minusMonths(1).minusDays(1)
-        val testDate = Instant.ofEpochMilli(epoch).atZone(ZoneId.systemDefault()).toLocalDate()
-        return testDate.isAfter(startDate) && testDate.isBefore(endDate)
+// shift :0 - current -1 - last
+fun isDateInWorkingMonth(epochMilli: Long, monthShift: Long): Boolean {
+    val testDate = LocalDateTime.ofInstant(Instant.ofEpochMilli(epochMilli), ZoneId.systemDefault())
+    val today = LocalDateTime.now()
+    // if today =< 25.20:00
+    val start: LocalDateTime
+    val end: LocalDateTime
+    if (today.dayOfMonth <= 25 && today.hour < 20) {
+        // last_month-1.25.20:00 < date < current_month-1.25.20:00
+        end = LocalDateTime.of(today.year, today.plusMonths(monthShift).month, 25, 20, 0, 0)
+        start = end.minusMonths(1)
+    }
+    // if today > 25.20:00
+    else {
+        //current_month-1.25.20:00 < date < next_month-1.25:20:00
+        start = LocalDateTime.of(today.year, today.minusMonths(1).plusMonths(monthShift).month, 25, 20, 0, 0)
+        end = start.plusMonths(1)
     }
 
-    // two months ago 25 - previous month 24
-    private fun isPreviousMonthDate(epoch: Long): Boolean {
-        val previousMonth = LocalDate.now().minusMonths(1)
-        val endDate = if (previousMonth.dayOfMonth < 25) previousMonth.withDayOfMonth(25)
-        else previousMonth.plusMonths(1).withDayOfMonth(25)
-        val startDate = endDate.minusMonths(1).minusDays(1)
-        val testDate = Instant.ofEpochMilli(epoch).atZone(ZoneId.systemDefault()).toLocalDate()
-        return testDate.isAfter(startDate) && testDate.isBefore(endDate)
-    }
+    return testDate.isAfter(start) && testDate.isBefore(end)
 }
