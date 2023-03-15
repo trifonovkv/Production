@@ -63,13 +63,13 @@ class CalcFragment : Fragment() {
         }
 
         binding.tvClear.setOnClickListener {
-            binding.etAdry.setText(R.string.zero)
-            binding.etAfresh.setText(R.string.zero)
-            binding.etAfrost.setText(R.string.zero)
-            binding.etAfruit.setText(R.string.zero)
-            binding.etAlco.setText(R.string.zero)
-            binding.etAmez.setText(R.string.zero)
-            binding.etHolod3.setText(R.string.zero)
+            binding.etAdry.setText("")
+            binding.etAfresh.setText("")
+            binding.etAfrost.setText("")
+            binding.etAfruit.setText("")
+            binding.etAlco.setText("")
+            binding.etAmez.setText("")
+            binding.etHolod3.setText("")
         }
 
         return root
