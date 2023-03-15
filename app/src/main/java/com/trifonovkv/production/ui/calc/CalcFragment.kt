@@ -92,13 +92,21 @@ class CalcFragment : Fragment() {
         val prices = pricesPreferences.getPrices()
 
         binding.tvShiftFee.setRubles(prices.shift, isHaveKopecks = false, isRubleSign = true)
-        val adryResult = (binding.etAdry.text.toString().toIntOrNull() ?: 0) * prices.adry
-        val afreshResult = (binding.etAfresh.text.toString().toIntOrNull() ?: 0) * prices.afresh
-        val afrostResult = (binding.etAfrost.text.toString().toIntOrNull() ?: 0) * prices.afrost
-        val afruitResult = (binding.etAfruit.text.toString().toIntOrNull() ?: 0) * prices.afruit
-        val alcoResult = (binding.etAlco.text.toString().toIntOrNull() ?: 0) * prices.alco
-        val amezResult = (binding.etAmez.text.toString().toIntOrNull() ?: 0) * prices.amez
-        val holod3Result = (binding.etHolod3.text.toString().toIntOrNull() ?: 0) * prices.holod3
+        val adryPicks = binding.etAdry.text.toString().toIntOrNull() ?: 0
+        val afreshPicks = binding.etAfresh.text.toString().toIntOrNull() ?: 0
+        val afrostPicks = binding.etAfrost.text.toString().toIntOrNull() ?: 0
+        val afruitPicks = binding.etAfruit.text.toString().toIntOrNull() ?: 0
+        val alcoPicks = binding.etAlco.text.toString().toIntOrNull() ?: 0
+        val amezPicks = binding.etAmez.text.toString().toIntOrNull() ?: 0
+        val holod3Picks = binding.etHolod3.text.toString().toIntOrNull() ?: 0
+
+        val adryResult = adryPicks * prices.adry
+        val afreshResult = afreshPicks * prices.afresh
+        val afrostResult = afrostPicks * prices.afrost
+        val afruitResult = afruitPicks * prices.afruit
+        val alcoResult = alcoPicks * prices.alco
+        val amezResult = amezPicks * prices.amez
+        val holod3Result = holod3Picks * prices.holod3
 
         handPickedResult += adryResult
         handPickedResult += afreshResult
@@ -122,6 +130,15 @@ class CalcFragment : Fragment() {
             isHaveKopecks = false,
             isRubleSign = true
         )
+
+        binding.tvTotalPicks.text = (
+                adryPicks +
+                afreshPicks +
+                afrostPicks +
+                afruitPicks +
+                alcoPicks +
+                amezPicks +
+                holod3Picks).toString()
     }
 
     private fun save() {

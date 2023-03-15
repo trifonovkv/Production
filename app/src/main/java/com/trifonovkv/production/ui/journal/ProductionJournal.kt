@@ -244,6 +244,7 @@ class ProductionJournal(private val dbHelper: ProductionDbHelper) {
         }
         cursor.close()
 
+        // fixme if enter date < 24
         return date - date2 < 8.64e+7 // 24 hours in milliseconds
 
     }
@@ -256,15 +257,14 @@ fun isDateInWorkingMonth(epochMilli: Long, monthShift: Long): Boolean {
     // if today =< 25.20:00
     val start: LocalDateTime
     val end: LocalDateTime
-    if (today.dayOfMonth <= 25 && today.hour < 20) {
-        // last_month-1.25.20:00 < date < current_month-1.25.20:00
+    if (today.dayOfMonth < 25 || (today.dayOfMonth == 25 && today.hour < 20)) {
+        // last_month-1.25 20:00 < date < current_month-1.25 20:00
         end = LocalDateTime.of(today.year, today.plusMonths(monthShift).month, 25, 20, 0, 0)
         start = end.minusMonths(1)
     }
-    // if today > 25.20:00
+    // if today > 25 20:00
     else {
-        //current_month-1.25.20:00 < date < next_month-1.25:20:00
-        start = LocalDateTime.of(today.year, today.minusMonths(1).plusMonths(monthShift).month, 25, 20, 0, 0)
+        start = LocalDateTime.of(today.year, today.plusMonths(monthShift).month, 25, 20, 0, 0)
         end = start.plusMonths(1)
     }
 
